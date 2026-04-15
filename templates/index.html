@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research Agent Workflow</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <script>
+        async function submitTask(event) {
+            event.preventDefault();
+            const topic = document.getElementById('topic').value;
+            const btn = document.getElementById('submit-btn');
+            btn.disabled = true;
+            btn.innerText = 'Starting...';
+            
+            await fetch('/tasks', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: `topic=${encodeURIComponent(topic)}`
+            });
+            window.location.reload();
+        }
+
+        // Auto-refresh the page every 5 seconds if there are tasks still running
+        function autoRefresh() {
+            const hasRunningTasks = document.querySelectorAll('strong[class^="status-running"], strong.status-pending, strong.status-planning').length > 0;
+            if (hasRunningTasks) {
+                setTimeout(() => {
+                    window.location.reload();
+                }, 5000);
+            }
+        }
+        
+        window.onload = autoRefresh;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Research Agent Workflow</h1>
+        
+        <form onsubmit="submitTask(event)" class="task-form">
+            <input type="text" id="topic" placeholder="Enter research topic (e.g., Quantum Computing)" required>
+            <button type="submit" id="submit-btn">Generate Report</button>
+        </form>
+
+        <h2>Task Status</h2>
+        <div class="task-list">
+            {% for task in tasks %}
+            <div class="task-card">
+                <h3>Task #{{ task.id }}: {{ task.topic }}</h3>
+                <p>Status: <strong class="status-{{ task.status|lower|replace(':', '')|replace(' ', '-') }}">{{ task.status }}</strong></p>
+                {% if task.result %}
+                <details>
+                    <summary>View Result</summary>
+                    <pre>{{ task.result }}</pre>
+                </details>
+                {% endif %}
+                <p><small>Created: {{ task.created_at }}</small></p>
+            </div>
+            {% else %}
+            <p>No tasks yet. Start one above!</p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>

@@ -102,3 +102,5 @@ details = [
     {"项目": "总支出成本", "金额 (元)": f"{total_cost:,.2f}", "金额 (万元)": f"{total_cost/10000:,.2f}"}
 ]
 st.dataframe(details, use_container_width=True)
+
+
