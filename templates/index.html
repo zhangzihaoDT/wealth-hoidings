@@ -39,10 +39,31 @@
 <body>
     <div class="container">
         <h1>Research Agent Workflow</h1>
+
+        <div class="usage-hint">
+            <div class="usage-title">输入提示</div>
+            <ul class="usage-list">
+                <li>
+                    输入普通文本（研究主题）：
+                    <span class="usage-steps">research → write → edit</span>
+                    ，输出一份结构化研究报告。
+                </li>
+                <li>
+                    输入懂车帝参数页 URL（以 http/https 开头，例如
+                    <span class="usage-code">https://www.dongchedi.com/auto/params-carIds-254458</span>
+                    ）：
+                    <span class="usage-steps">bom</span>
+                    ，抓取页面参数并按
+                    <span class="usage-steps">电池系统 / 电驱系统 / 底盘系统 / 车身系统 / 智能座舱 / 智能驾驶 / 内外饰</span>
+                    分类输出 JSON。
+                </li>
+            </ul>
+            <div class="usage-note">结果在下方 Task Status 中查看（View Result）。</div>
+        </div>
         
         <form onsubmit="submitTask(event)" class="task-form">
-            <input type="text" id="topic" placeholder="Enter research topic (e.g., Quantum Computing)" required>
-            <button type="submit" id="submit-btn">Generate Report</button>
+            <input type="text" id="topic" placeholder="输入研究主题，或粘贴懂车帝参数页 URL（例如 https://www.dongchedi.com/auto/params-carIds-254458）" required>
+            <button type="submit" id="submit-btn">提交任务</button>
         </form>
 
         <h2>Task Status</h2>

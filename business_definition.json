@@ -1,0 +1,45 @@
+{
+  "models": [
+    {
+      "brand": "智己",
+      "model": "LS8",
+      "suppliers": {
+        "电池系统": {
+          "电池/电芯": [
+            {
+              "capacity_kwh": 52,
+              "supplier": "正力"
+            },
+            {
+              "capacity_kwh": 66,
+              "supplier": "宁德时代"
+            }
+          ]
+        },
+        "智能驾驶": {
+          "激光雷达": {
+            "supplier": "速腾聚创",
+            "spec": "520线"
+          },
+          "智驾方案": {
+            "supplier": "Momenta"
+          },
+          "算力芯片": {
+            "supplier": "Thor"
+          }
+        },
+        "智能座舱": {
+          "音响": {
+            "supplier": "B&O"
+          }
+        },
+        "内外饰": {
+          "零重力座椅": {
+            "supplier": "华域"
+          }
+        }
+      }
+    }
+  ]
+}
+

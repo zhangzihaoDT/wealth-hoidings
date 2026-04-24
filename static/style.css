@@ -17,6 +17,47 @@ h1 {
     text-align: center;
     margin-bottom: 30px;
 }
+.usage-hint {
+    border: 1px solid #ecf0f1;
+    background: #f8fbff;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin-bottom: 18px;
+}
+.usage-title {
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+.usage-list {
+    margin: 0;
+    padding-left: 18px;
+    color: #34495e;
+    line-height: 1.6;
+}
+.usage-list li {
+    margin: 6px 0;
+}
+.usage-steps {
+    font-family: "Courier New", Courier, monospace;
+    background: #eef6ff;
+    border: 1px solid #d7e9ff;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #1f5f9b;
+}
+.usage-code {
+    font-family: "Courier New", Courier, monospace;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+.usage-note {
+    margin-top: 10px;
+    color: #7f8c8d;
+    font-size: 14px;
+}
 h2 {
     color: #34495e;
     border-bottom: 2px solid #ecf0f1;
